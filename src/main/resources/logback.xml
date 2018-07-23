@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="ROLLINGAPPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>C:\tmp\spbootreactjs.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>D:\home\LogFiles\Application\spbootreactjs-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>4MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- Max History is 5 days -->
+			<maxHistory>5</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{35} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.apache.http.wire" level="WARN"/>
+	<logger name="org.apache.http.headers" level="WARN"/>
+	<logger name="org.apache.http.impl.conn" level="WARN"/>
+	<logger name="org.apache.http.impl.client" level="WARN"/>
+	<logger name="org.apache.http.impl.execchain" level="WARN"/>
+	<logger name="org.apache.http.client" level="WARN"/>
+    <logger name="org.springframework.orm" level="WARN"/>
+    <logger name="org.springframework.beans" level="WARN"/>
+    <logger name="org.springframework.ws" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.jdbc" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="com.hari.spb.react" level="DEBUG"/>
+	
+	<root level="DEBUG">
+		<appender-ref ref="ROLLINGAPPENDER" />
+	</root>
+</configuration>	
